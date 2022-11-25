@@ -336,3 +336,4 @@ ASALocalRun/
 # project tokens
 discord.config
 discloud.config
+DiscordTokens.py
