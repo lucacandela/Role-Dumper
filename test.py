@@ -1,4 +1,4 @@
-import RoleDumper
+from roledumper import RoleDumper
 
 rd = RoleDumper
 
