@@ -337,3 +337,4 @@ ASALocalRun/
 discord.config
 discloud.config
 DiscordTokens.py
+.env
