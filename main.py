@@ -52,7 +52,6 @@ def run():
     async def invite(interaction: discord.Interaction):
         await interaction.send("https://discord.com/api/oauth2/authorize?client_id=1045768782074892381&permissions=274877908992&scope=bot%20applications.commands")
 
-
     @bot.tree.command(name="list_members_with_roles")
     @app_commands.describe(role1="List all members with up to 3 overlapping roles")
     async def listRoles(interaction: discord.Interaction, role1: discord.Role,
