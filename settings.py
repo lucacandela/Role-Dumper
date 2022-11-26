@@ -51,7 +51,6 @@ LOGGING_CONFIG = {
             "propagate": False
         }
     }
-
 }
 
 dictConfig(LOGGING_CONFIG)
