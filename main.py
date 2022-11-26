@@ -66,7 +66,7 @@ def run():
             elif nickname and m.nick == None:
                 name = m.name
             else:
-                name+="#"+m.discriminator
+                name= m.name+"#"+m.discriminator
             return name
 
         name = getName(interaction.user)
