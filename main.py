@@ -17,8 +17,6 @@ def returnRoles(interaction: discord.Interaction):
             overlap.append(member)
         count = 0
     return overlap
-    
-    
 
 def run():
     intents = discord.Intents.default()
