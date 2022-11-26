@@ -54,29 +54,18 @@ def run():
     async def invite(interaction: discord.Interaction):
         await interaction.send("https://discord.com/api/oauth2/authorize?client_id=1045768782074892381&permissions=274877908992&scope=bot%20applications.commands")
 
-    @bot.command(
-        aliases=['p'],
-        help ="This is help",
-        description ="This is description",
-        brief ="This is brief",
-        enabled=False,
-        hidden= True
-    )
-    async def ping(ctx):
-        """Answers with 'pong'"""
-        await ctx.send("pong")
 
     @bot.tree.command(name="list_members_with_roles")
     @app_commands.describe(role1="List all members with up to 3 overlapping roles")
     async def listRoles(interaction: discord.Interaction, role1: discord.Role,
-    role2: discord.Role = None, role3: discord.Role = None, nickname: bool = True, full_id: bool = False
+    role2: discord.Role = None, role3: discord.Role = None, nickname: bool = True
     ):
         def getName(m : discord.Member):
             if nickname and m.nick != None:
                 name = m.nick
-            else:
+            elif nickname and m.nick == None:
                 name = m.name
-            if full_id:
+            else:
                 name+="#"+m.discriminator
             return name
 
@@ -103,7 +92,9 @@ def run():
                 results = results + ((str(count) +". " + getName(m)),)
                 count+= 1
             results = results + ("```",)
-        await interaction.response.send_message("{}{}".format(initialRequest, "\n".join(results)))
+        post = "{}{}".format(initialRequest, "\n".join(results))
+        logger.info(post)
+        await interaction.response.send_message(post)
 
 
     bot.run(settings.DISCORD_API_SECRET, root_logger=True)
