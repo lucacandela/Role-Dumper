@@ -38,6 +38,11 @@ def run():
         except Exception as e:
             print(e)
 
+    @bot.event
+    async def on_command_error(interaction, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await interaction.send("Error occured.")
+
     @bot.command(
         aliases=['i','inv'],
         help="Create invite link for this bot",
